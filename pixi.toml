@@ -8,8 +8,8 @@ platforms = ["win-64", "linux-64", "osx-64", "osx-arm64"]
 [dependencies]
 packaging = "*"
 python = "3.11.*"
-knime-extension = ">=5.5.0"
-knime-python-base = ">=5.5.0"
+knime-extension = "5.13.*"
+knime-python-base = "5.13.*"
 markdown = "*"
 pandas = "*"
 mdh = { version = "3.6.1.*", channel = "graudata" }
@@ -17,11 +17,11 @@ mdh = { version = "3.6.1.*", channel = "graudata" }
 [pypi-dependencies]
 
 [feature.build.dependencies]
-python = "3.9.*"
-knime-extension-bundling = ">=5.5.0"
+python = "*"
+knime-extension-bundling = "6.1.*"
 
 [feature.build.tasks]
-build = { args = [{ "arg" = "dest", "default" = "./local-update-site" }], cmd = "python ./.pixi/envs/build/bin/build_python_extension.py . {{ dest }}"}
+build = { args = [{ "arg" = "dest", "default" = "./local-update-site" }], cmd = "build-python-extension . {{ dest }} --force --disable-strict-enforcement --update-sites-version nightly"}
 
 [environments]
 build = {features = ["build"], no-default-feature = true}
