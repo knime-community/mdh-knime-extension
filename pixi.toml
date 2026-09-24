@@ -17,8 +17,8 @@ mdh = { version = "3.6.1.*", channel = "graudata" }
 [pypi-dependencies]
 
 [feature.build.dependencies]
-python = "3.9.*"
-knime-extension-bundling = ">=5.5.0"
+python = "3.13.*"
+knime-extension-bundling = "6.*"
 
 [feature.build.tasks]
 build = { args = [{ "arg" = "dest", "default" = "./local-update-site" }], cmd = "python ./.pixi/envs/build/bin/build_python_extension.py . {{ dest }}"}
